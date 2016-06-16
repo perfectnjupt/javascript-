@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>间歇滚动</title>
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .one{
+            width: 900px;
+            height: 120px;
+            margin: 0 auto;
+            margin-top:100px;
+            background: #ffff99;
+            overflow: hidden;
+        }
+        .two{
+            width: 900px;
+            height: 120px;
+            overflow: hidden;
+
+        }
+        .two ul{
+
+            height: 192px;
+            list-style-type:none;
+            line-height: 24px;
+            font-family: "Microsoft YaHei";
+            font-size: 18px;
+            letter-spacing:2px;
+        }
+        .two ul a{
+            display: block;
+            text-decoration: none;
+        }
+        .two ul a:hover{
+            color:#9f06ff;
+        }
+    </style>
+</head>
+<body>
+<div id="one"class="one">
+    <div id="two"class="two">
+        <ul id="three"class="three">
+            <li><a href="">
+                1.真理惟一可靠的标准就是永远自相符合。 —— 欧文</a></li>
+            <li><a href="">2.时间是一切财富中最宝贵的财富。 —— 德奥弗拉斯多</a></li>
+            <li><a href="">3.世界上一成不变的东西，只有“任何事物都是在不断变化的”这条真理。 —— 斯里兰卡</a></li>
+            <li><a href="">4.命运负责洗牌，但是玩牌的是我们自己！</a></li>
+            <li><a href="">5.宁愿做过了后悔，也不要错过了后悔。</a></li>
+            <li><a href="">6.不要拿小人的错误来惩罚自己，不要在这些微不足道的事情上折磨浪费自己的宝贵时间。</a></li>
+            <li><a href="">7.学的到东西的事情是锻炼，学不到的是磨练。</a></li>
+            <li><a href="">8.得之坦然，失之淡然，顺其自然，争其必然。</a></li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var two=document.getElementById('two');
+    var three=document.getElementById('three').offsetHeight;
+    two.innerHTML+=two.innerHTML;
+    var liheight=24;
+
+    var time=null;
+    limite();
+    function limite(){
+        two.scrollTop+=1;
+        time=setInterval('start()',50);
+
+    }
+    function start(){
+        if(two.scrollTop>=three){
+            two.scrollTop=0;
+        }else{
+                //console.log(two.scrollTop%24);
+            if(parseInt(two.scrollTop)%24==0){
+               // alert('hello');
+                two.scrollTop+=1;
+                clearInterval(time);
+                setTimeout('limite()',2000);
+            }else{
+                two.scrollTop+=1;
+            }
+        }
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
