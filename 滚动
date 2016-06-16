@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动</title>
+    <style type="text/css">
+        *{
+            margin:0px;
+            padding: 0px;
+            overflow: hidden;
+
+
+        }
+        .zero{
+            width:1000px;
+            height:320px;
+            margin: 0 auto;
+            margin-top:100px;
+            overflow: hidden;
+
+        }
+        .zero h2{
+            text-align: center;
+        }
+        .one{
+
+            width:1000px;
+            height:212px;
+            background: #ffff99;
+            margin: 0 auto;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+
+        }
+        .one ul{
+            list-style-type: decimal;
+            list-style-position:inside;
+            line-height:30px;
+            overflow: hidden;
+
+        }
+        .one ul a{
+            text-decoration: none;
+            display: block;
+        }
+        .one ul a:hover{
+            color:#9f06ff;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="zero"class="zero">
+        <h2>名言警句</h2>
+        <div id="one"class="one">
+            <ul id="two"class="two">
+                <li><a href="">
+                    真理惟一可靠的标准就是永远自相符合。 —— 欧文</a></li>
+                <li><a href="">时间是一切财富中最宝贵的财富。 —— 德奥弗拉斯多</a></li>
+                <li><a href="">世界上一成不变的东西，只有“任何事物都是在不断变化的”这条真理。 —— 斯里兰卡</a></li>
+                <li><a href="">命运负责洗牌，但是玩牌的是我们自己！</a></li>
+                <li><a href="">宁愿做过了后悔，也不要错过了后悔。</a></li>
+                <li><a href="">不要拿小人的错误来惩罚自己，不要在这些微不足道的事情上折磨浪费自己的宝贵时间。</a></li>
+                <li><a href="">学的到东西的事情是锻炼，学不到的是磨练。</a></li>
+                <li><a href="">得之坦然，失之淡然，顺其自然，争其必然。</a></li>
+            </ul>
+            <ul id="three"class="three">
+
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    var one=document.getElementById('one');
+    var two=document.getElementById('two');
+    var three=document.getElementById('three');
+    three.innerHTML=two.innerHTML;
+
+   function scroll(){
+       console.log(parseInt(one.scrollTop)+'**********************'+one.offsetHeight+'#############'+one.scrollHeight);
+
+       if(one.scrollTop>=two.offsetHeight){
+           //alert('hello');
+           one.scrollTop=0;
+
+       }else{
+           one.scrollTop++;
+       }
+   }
+
+    setInterval('scroll()',50);
+
+</script>
+</html>
